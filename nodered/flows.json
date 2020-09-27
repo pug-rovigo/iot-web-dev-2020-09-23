@@ -1,0 +1,326 @@
+[
+    {
+        "id": "43711b7d.cc98a4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3f19e3be.99e1ec",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "rovigo",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "node",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": false,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "c65a9e62.aba51",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "911cba3e.54ba58",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "c65a9e62.aba51",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a54593c7.5b24a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "de9108ca.4379b8",
+        "type": "mqtt in",
+        "z": "43711b7d.cc98a4",
+        "name": "status",
+        "topic": "status",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "3f19e3be.99e1ec",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "86f709d4.61daf8",
+                "e4d191e1.02cd9"
+            ]
+        ]
+    },
+    {
+        "id": "86f709d4.61daf8",
+        "type": "ui_text",
+        "z": "43711b7d.cc98a4",
+        "group": "911cba3e.54ba58",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Status Label",
+        "label": "STATUS",
+        "format": "{{msg.payload.status}}",
+        "layout": "row-spread",
+        "x": 790,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1440fb65.037485",
+        "type": "mqtt in",
+        "z": "43711b7d.cc98a4",
+        "name": "Data",
+        "topic": "data",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "3f19e3be.99e1ec",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "6d215eec.6b004",
+                "d97de00a.b9bb6",
+                "77253580.7d542c"
+            ]
+        ]
+    },
+    {
+        "id": "6d215eec.6b004",
+        "type": "ui_gauge",
+        "z": "43711b7d.cc98a4",
+        "name": "Temperatura",
+        "group": "911cba3e.54ba58",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Temperatura",
+        "label": "C",
+        "format": "{{msg.payload.temp.toFixed(2)}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d97de00a.b9bb6",
+        "type": "ui_gauge",
+        "z": "43711b7d.cc98a4",
+        "name": "Umidità",
+        "group": "911cba3e.54ba58",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Umidità",
+        "label": "%",
+        "format": "{{msg.payload.hum.toFixed(2)}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 780,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e4d191e1.02cd9",
+        "type": "ui_toast",
+        "z": "43711b7d.cc98a4",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "topic": "Stato Dispositivo",
+        "name": "Notrifica Status",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "87f81c09.3e454",
+        "type": "ui_button",
+        "z": "43711b7d.cc98a4",
+        "name": "",
+        "group": "911cba3e.54ba58",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Toggle",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "command",
+        "payloadType": "str",
+        "topic": "",
+        "x": 170,
+        "y": 520,
+        "wires": [
+            [
+                "c42dfc50.230a1"
+            ]
+        ]
+    },
+    {
+        "id": "c42dfc50.230a1",
+        "type": "mqtt out",
+        "z": "43711b7d.cc98a4",
+        "name": "",
+        "topic": "command",
+        "qos": "1",
+        "retain": "true",
+        "broker": "3f19e3be.99e1ec",
+        "x": 780,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "77253580.7d542c",
+        "type": "ui_text",
+        "z": "43711b7d.cc98a4",
+        "group": "911cba3e.54ba58",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Rele",
+        "format": "{{msg.payload.status ? 'Chiuso' : 'Aperto'}}",
+        "layout": "row-spread",
+        "x": 770,
+        "y": 440,
+        "wires": []
+    }
+]
