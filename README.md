@@ -1,3 +1,5 @@
+![Programma](https://github.com/pug-rovigo/iot-web-dev-2020-09-23/raw/master/undraw_best_place_r685.png)
+
 # PUG Rovigo - IoT e web development
 - [Meetup](https://www.meetup.com/it-IT/pug-rovigo/events/273003189/)
 - [Slides](https://slides.com/eppak/iot-e-web-development)
