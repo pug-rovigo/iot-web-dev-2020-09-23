@@ -14,6 +14,9 @@ Copiare in locale quello che è presente nel repository.
 
     $ touch /home/[utente]/mosquitto.conf
     $ docker run -it -p 1883:1883 -p 9001:9001 -v /home/[utente]/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+    $ docker exec eclipse-mosquitto touch /mosquitto/passwd
+    $ docker exec -ti eclipse-mosquitto sh
+    $ mosquitto_passwd -c /mosquitto/passwd username
 
 ### NodeRed
 
